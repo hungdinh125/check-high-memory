@@ -1,24 +1,36 @@
 pipeline {
     agent any
     stages {
-        stage('Clone the repository') {
+        stage('Build Docker container') {
             steps {
-                sh 'git clone https://github.com/hungdinh125/check-high-memory.git'
+                echo 'Build container'
+                sh "docker run -dit --name ansible_git netdevops/ansible_git_v1"
             }
         }
-        stage('Verify directory is clonded') {
+     
+        stage('Clone the repository to container') {
             steps {
-                sh 'ls -la'
+                sh 'docker exec -i ansible_git /bin/sh -c "git clone https://github.com/hungdinh125/check-high-memory.git"'                
             }
         }
-        stage('Run the python script apac_high_memory.py') {
+
+        stage('Install pyats, genie and scp') {
             steps {
-                sh 'python3 apac_high_memory.py --testbed apac_tb.yaml'
+                sh 'docker exec -i ansible_git /bin/sh -c "pip3 install pyats"'
+                sh 'docker exec -i ansible_git /bin/sh -c "pip3 install genie"'
+                sh 'docker exec -i ansible_git /bin/sh -c "sudo yum install -y openssh-clients'
+            }
+        }
+                
+        stage('Run the Python script apac_high_memory.py') {
+            steps {
+                sh 'docker exec -i ansible_git /bin/sh -c "python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml"'
             }
         }
         stage('Copy output to Jenkins server directory') {
             steps {
-                sh 'cp check-high-memory/apac_switch_memory txt .'
+                sh 'docker exec -i ansible_git /bin/sh -c "cp check-high-memory/apac_switch_memory.txt ."'
+                sh 'docker exec -i ansible_git /bin/sh -c "scp check-high-memory/apac_switch_memory.txt network:network@10.127.10.29/apac_switch_memory.txt"'
             }
         }
     }
@@ -28,6 +40,7 @@ pipeline {
                     deleteDirs: true,
                     disableDeferredWipeout: true,
                     notFailBuild: true)
+            sh "docker rm -f ansible_git"
         }
     }
 }
