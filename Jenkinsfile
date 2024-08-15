@@ -6,15 +6,12 @@ pipeline {
                 sh 'git clone https://github.com/hungdinh125/check-high-memory.git'                
             }
         }
-
-        stage('Install pyats, genie and scp') {
+        stage('Enable virtual environment pyats') {
             steps {
-                sh 'pip3 install pyats'
-                sh 'pip3 install genie'
-                sh 'sudo yum install -y openssh-clients'
+                sh 'python3 -m venv pyats'
+                sh 'source pyats/bin/activate'
             }
         }
-                
         stage('Run the Python script apac_high_memory.py') {
             steps {
                 sh 'python3 apac_high_memory.py --testbed apac_tb.yaml"'
