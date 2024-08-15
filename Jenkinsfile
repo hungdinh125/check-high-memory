@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Clone the repository to container') {
-            steps {
-                sh 'git clone https://github.com/hungdinh125/check-high-memory.git'                
-            }
-        }
         stage('Enable virtual environment pyats') {
             steps {
                 sh 'python3 -m venv pyats'
                 sh 'source pyats/bin/activate'
             }
         }
+        stage('Clone the repository to container') {
+            steps {
+                sh 'git clone https://github.com/hungdinh125/check-high-memory.git'                
+            }
+        }        
         stage('Run the Python script apac_high_memory.py') {
             steps {
                 sh 'python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml"'
