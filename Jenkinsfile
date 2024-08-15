@@ -28,7 +28,7 @@ pipeline {
                 sh '''
                 ftp -inv 10.133.10.115 <<EOF
                 user apacftp P@ssw0rd
-                put check-high-memory/apac_switch_memory.txt /apac_switch_memory.txt
+                put ./apac_switch_memory.txt /apac_switch_memory.txt
                 bye
                 EOF
                 '''
