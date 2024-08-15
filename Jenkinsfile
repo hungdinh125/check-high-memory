@@ -14,7 +14,7 @@ pipeline {
         }        
         stage('Run the Python script apac_high_memory.py') {
             steps {
-                sh 'python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml'
+                sh 'python3 apac_high_memory.py --testbed apac_tb.yaml'
             }
         }
         stage('Debug: List Files in Directory') {
