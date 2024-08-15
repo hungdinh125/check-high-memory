@@ -7,11 +7,6 @@ pipeline {
                 sh 'source pyats/bin/activate'
             }
         }
-        stage('Clone the repository to container') {
-            steps {
-                sh 'git clone https://github.com/hungdinh125/check-high-memory.git'                
-            }
-        }        
         stage('Run the Python script apac_high_memory.py') {
             steps {
                 sh 'python3 apac_high_memory.py --testbed apac_tb.yaml'
