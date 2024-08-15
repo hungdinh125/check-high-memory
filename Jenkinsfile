@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Copy output to Jenkins server directory') {
             steps {
-                sh 'scp check-high-memory/apac_switch_memory.txt apacftp:P%40ssw0rd@10.133.10.115/apac_switch_memory.txt'
+                sh 'sshpass -p 'P@ssw0rd' scp check-high-memory/apac_switch_memory.txt apacftp@10.133.10.115:/apac_switch_memory.txt'
             }
         }
     }
