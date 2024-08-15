@@ -17,6 +17,11 @@ pipeline {
                 sh 'python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml'
             }
         }
+        stage('Debug: List Files in Directory') {
+            steps {
+                sh 'ls -l check-high-memory/'
+            }
+        }
         stage('Copy output to Jenkins server directory') {
             steps {
                 sh '''
