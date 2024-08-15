@@ -14,12 +14,12 @@ pipeline {
         }        
         stage('Run the Python script apac_high_memory.py') {
             steps {
-                sh 'python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml"'
+                sh 'python3 check-high-memory/apac_high_memory.py --testbed check-high-memory/apac_tb.yaml'
             }
         }
         stage('Copy output to Jenkins server directory') {
             steps {
-                sh 'scp check-high-memory/apac_switch_memory.txt apacftp:P%40ssw0rd@10.133.10.115/apac_switch_memory.txt"'
+                sh 'scp check-high-memory/apac_switch_memory.txt apacftp:P%40ssw0rd@10.133.10.115/apac_switch_memory.txt'
             }
         }
     }
