@@ -15,7 +15,6 @@ pipeline {
         stage('Debug: List Files in Directory') {
             steps {
                 sh 'ls -la'
-                sh 'ls -l check-high-memory/'
             }
         }
         stage('Copy output to Jenkins server directory') {
