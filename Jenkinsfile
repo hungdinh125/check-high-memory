@@ -41,13 +41,19 @@ pipeline {
         stage('Post to MS Teams') {
             steps {
                 script {
-                    // Use a multi-line shell script with triple quotes
-                    sh """
-                    result=\$(sed ':a;N;\$!ba;s/\\n/\\\\n/g' apac_switch_memory.txt | sed 's/\\"/\\\\\\"/g')
-                    echo "Result is: \$result"
-                    payload=\$(jq -n --arg text "\$result" '{"text": $text}')
-                    curl -H 'Content-Type: application/json' -d "\$payload" https://aligntech.webhook.office.com/webhookb2/7ed9a6c7-e811-4e71-956c-9ac44c96-980a-481b-ae23-d8f56b82c605/JenkinsCI/9ecff2f044b44cfcae37b0376ecd1540/9d21b513-f4ee-4b3b-995c-7a422a087a6c
-                    """
+                    def result = sh(script: '''
+                    result=$(sed ':a;N;$!ba;s/\\n/\\\\n/g' apac_switch_memory.txt | sed 's/\\"/\\\\\\"/g')
+                    echo "Result is: $result"
+                    echo "$result"
+                    ''', returnStdout: true).trim()
+
+                    def payload = sh(script: """
+                    jq -n --arg text "$result" '{"text": \$text}'
+                    """, returnStdout: true).trim()
+
+                    sh(script: """
+                    curl -H 'Content-Type: application/json' -d '$payload' https://aligntech.webhook.office.com/webhookb2/7ed9a6c7-e811-4e71-956c-9e54f8b7d705@9ac44c96-980a-481b-ae23-d8f56b82c605/JenkinsCI/9ecff2f044b44cfcae37b0376ecd1540/9d21b513-f4ee-4b3b-995c-7a422a087a6c
+                    """)
                 }
             }
         }
