@@ -4,8 +4,10 @@ pipeline {
         stage('Enable virtual environment pyats') {
             steps {
                 echo 'Setup PYATS environment'
-                sh 'python3 -m venv pyats'
-                sh 'source pyats/bin/activate'
+                sh '''
+                python3 -m venv pyats'
+                source pyats/bin/activate
+                '''
             }
         }
         stage('List Files in Directory') {
@@ -41,7 +43,11 @@ pipeline {
         stage('Post to MS Teams') {
             steps {
                 echo 'Display result to MS Teams channel'
-                sh 'curl -H "Content-Type: application/json" -d "{\"text\": \"$(< apac_switch_memory.txt)\"}" https://aligntech.webhook.office.com/webhookb2/7ed9a6c7-e811-4e71-956c-9e54f8b7d705@9ac44c96-980a-481b-ae23-d8f56b82c605/JenkinsCI/9ecff2f044b44cfcae37b0376ecd1540/9d21b513-f4ee-4b3b-995c-7a422a087a6c'
+                sh '''
+                curl -H 'Content-Type: application/json' \
+                     -d "{\"text\": \"$(cat apac_switch_memory.txt | sed 's/\"/\\"/g')\"}" \
+                     https://aligntech.webhook.office.com/webhookb2/7ed9a6c7-e811-4e71-956c-9e54f8b7d705@9ac44c96-980a-481b-ae23-d8f56b82c605/JenkinsCI/9ecff2f044b44cfcae37b0376ecd1540/9d21b513-f4ee-4b3b-995c-7a422a087a6c
+                '''
             }
         }
     }
