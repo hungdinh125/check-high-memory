@@ -40,6 +40,7 @@ pipeline {
         }
         stage('Post to MS Teams') {
             steps {
+                echo 'Send result to MS Teams channel'
                 script {
                     // Read and format the result
                     def result = sh(script: '''
