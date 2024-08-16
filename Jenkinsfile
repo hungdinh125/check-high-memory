@@ -32,6 +32,12 @@ pipeline {
                 '''
             }
         }
+        stage('Output the result in console') {
+            steps {
+                echo 'Check the result in console interface'
+                sh 'cat apac_switch_memory.txt'
+            }
+        }
         stage('Post to MS Teams') {
             steps {
                 echo 'Display result to MS Teams channel'
