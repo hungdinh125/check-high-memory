@@ -10,31 +10,19 @@ pipeline {
         }
         stage('List Files in Directory') {
             steps {
-                echo 'Confirm the files are existing'
+                echo 'Confirm required files are cloned'
                 sh 'ls -la'
             }
         }        
         stage('Run the Python script apac_high_memory.py') {
             steps {
-                echo 'Activate Python script to check used memory'
+                echo 'Activate Python script to show used memory'
                 sh 'python3 apac_high_memory.py --testbed apac_tb.yaml'
             }
         }
-        stage('Copy output to Jenkins server directory') {
+        stage('Output the result in console logging') {
             steps {
-                echo 'Send output to FTP server'
-                sh '''
-                ftp -inv 10.133.10.115 <<EOF
-                user apacftp P@ssw0rd
-                put apac_switch_memory.txt /apac_switch_memory.txt
-                bye
-                EOF
-                '''
-            }
-        }
-        stage('Output the result in console') {
-            steps {
-                echo 'Check the result in console interface'
+                echo 'Display Used Memory to console'
                 sh 'cat apac_switch_memory.txt'
             }
         }
