@@ -63,7 +63,7 @@ class Memory_less_than_80(aetest.Testcase):
             # Output used memory for each switch unit
                 for line in memory_status:
                     switch_unit, used_memory = line.split('\t')
-                    if int(used_memory) > 80:
+                    if int(used_memory) > 50:
                         fh.write(f"{switch_unit.ljust(20)}{used_memory.rjust(8)} <==== Need to check\n")
                         log.info(f"Memory test of {device} is FAILED ***")
                     else:
