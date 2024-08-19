@@ -15,6 +15,22 @@ devices:
       cli:
         protocol: ssh
         ip: 10.148.255.100
+  twtaip01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.132.253.1
+  twtaic01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.140.253.1
   tlbkok01as01:
     type: switch
     os: iosxe
@@ -47,6 +63,22 @@ devices:
       cli:
         protocol: ssh
         ip: 10.151.253.1
+  inmumb01as02:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.151.253.2
+  inhdrb02cr01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.152.253.1
   jposka01as01:
     type: switch
     os: iosxe
@@ -63,6 +95,30 @@ devices:
       cli:
         protocol: ssh
         ip: 10.121.253.1
+  jpykhm01cr01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.143.253.1
+  jpykhm01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.143.253.2
+  jpykhm01as02:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.143.253.3
   krseul01as01:
     type: switch
     os: iosxe
@@ -95,3 +151,251 @@ devices:
       cli:
         protocol: ssh
         ip: 10.127.253.1
+  sgsing01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.127.253.2
+  cnwhan01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.134.253.1
+  cnshan02cr01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.122.253.1
+  cnshan02as03:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.122.253.2
+  cnshan02as06:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.122.253.3
+  cnnanj01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.141.253.1
+  cnhngz01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.137.253.1
+  cngngz01as03:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.123.253.1
+  cnchen01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.131.253.1
+  cnbjng01as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.120.253.1
+  cnchen02cr01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.1
+  cnchen02as01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.2
+  cnchen02as02:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.7
+  cnchen02as03:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.8
+  cnchen02as04:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.9
+  cnchen02as05:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.10
+  cnchen02as06:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.133.255.11
+  cnzyng02cr01:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.107
+  cnzyng02as001:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.109
+  cnzyng02as011:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.122
+  cnzyng02as101:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.110
+  cnzyng02as111:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.123
+  cnzyng02as112:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.249
+  cnzyng02as211:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.124
+  cnzyng02as301:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.113
+  cnzyng02as311:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.125
+  cnzyng02as312:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.126
+  cnzyng02as313:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.239.5
+  cnzyng02as321:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.136
+  cnzyng02as401:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.115
+  cnzyng02as501:
+    type: switch
+    os: iosxe
+    platform: cat9k
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.146.103.116
