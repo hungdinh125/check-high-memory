@@ -367,14 +367,6 @@ devices:
       cli:
         protocol: ssh
         ip: 10.146.103.126
-  cnzyng02as313:
-    type: switch
-    os: iosxe
-    platform: cat9k
-    connections:
-      cli:
-        protocol: ssh
-        ip: 10.146.239.5
   cnzyng02as321:
     type: switch
     os: iosxe
